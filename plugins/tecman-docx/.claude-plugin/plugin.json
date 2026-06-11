@@ -1,0 +1,6 @@
+{
+  "name": "tecman-docx",
+  "description": "Generate or restyle Microsoft Word (.docx) documents to the Tecman house style and brand (A4, Arial, teal palette, logo, control/change-history tables, contents field, branded tables/code, footer).",
+  "version": "1.0.0",
+  "author": { "name": "Philip Thomas" }
+}

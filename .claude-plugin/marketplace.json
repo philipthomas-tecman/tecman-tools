@@ -1,0 +1,15 @@
+{
+  "name": "tecman-tools",
+  "owner": { "name": "Philip Thomas" },
+  "description": "Tecman Claude Code tools.",
+  "plugins": [
+    {
+      "name": "tecman-docx",
+      "source": "./plugins/tecman-docx",
+      "description": "Generate or restyle Microsoft Word (.docx) documents in the Tecman house style and brand.",
+      "version": "1.0.0",
+      "author": { "name": "Philip Thomas" },
+      "keywords": ["tecman", "docx", "word", "branding", "documentation", "house-style"]
+    }
+  ]
+}
