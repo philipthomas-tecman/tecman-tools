@@ -7,7 +7,7 @@ A Claude Code plugin marketplace hosting Tecman developer tools.
 | Plugin | Description |
 |--------|-------------|
 | `tecman-docx` | Generate or restyle Microsoft Word (`.docx`) documents in the Tecman house style and brand. Bundles the master logo and a `python-docx` generator library. |
-| `ai-project-kickoff` | Standard process for in-house AI projects. Requirements gathering is captured as granular working markdown in `docs/` (the source of truth); the Tecman-branded document package is **rendered from it at each review gate** (PoC and production) — gate-aware taxonomy with the LLD at the PoC gate. Provides `/new-ai-project`, `/render-gate-package`, the `ai-poc-docs` skill, and a `design-reviewer` agent. Requires `tecman-docx`. |
+| `ai-project-kickoff` | Standard process for in-house AI projects. Requirements gathering is captured as granular working markdown in `docs/` (the source of truth); the Tecman-branded document package is **rendered from it at each review gate** (PoC and production) — gate-aware taxonomy with the LLD at the PoC gate. Provides `/new-ai-project`, `/render-gate-package`, the `ai-poc-docs` skill, a `discovery` agent (reasoning model), a `gate-renderer` agent (Sonnet, for cost-efficient generation), and a `design-reviewer` agent. Requires `tecman-docx`. |
 
 ## Install (any machine)
 

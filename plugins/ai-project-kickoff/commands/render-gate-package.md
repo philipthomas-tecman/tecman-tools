@@ -5,6 +5,8 @@ argument-hint: poc | production
 
 Render the **$ARGUMENTS** gate package (default `poc` if no argument is given).
 
+**Delegate this to the `gate-renderer` subagent**, which runs on **Sonnet** to keep this token-heavy generation cost-efficient and out of the main conversation's context. Pass it the gate (`$ARGUMENTS`). The subagent performs the steps below and returns a summary.
+
 Using the `ai-poc-docs` skill's `references/gate-taxonomy.md` (taxonomy + roll-up mapping), `references/document-specs.md` (per-document sections), and `references/standards.md`:
 
 1. Read the current working markdown in `docs/`.
