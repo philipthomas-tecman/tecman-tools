@@ -1,52 +1,45 @@
 ---
 name: ai-poc-docs
-description: Kick off a new AI project — run a structured requirements-gathering (discovery) exercise with the engineer, then generate the Proof-of-Concept documentation package (Charter, BRD, Requirements, Solution Design, LLD, AI Design/Prompt spec, AI Evaluation Strategy, DPIA, RAID, ADRs, Glossary) to the Tecman house style, adhering to the industry standards and best practices in references/standards.md. Use when starting a new AI project, scaffolding project documentation, or when the user runs /new-ai-project. Defers the production documentation corpus until deployment.
+description: Standard process for starting a new in-house AI project. Run requirements gathering, capture every decision as granular working markdown in docs/ (the version-controlled source of truth), and at each review gate render the Tecman-branded document package (.docx) from that markdown using the tecman-docx plugin. Use when starting a new AI project, kicking off discovery/requirements, or when the user runs /new-ai-project. The PoC gate package includes the LLD; production-only documents are produced at the production gate.
 ---
 
-# AI project kickoff — discovery to PoC documentation
+# AI project kickoff — two-layer documentation standard
 
-A repeatable, gated procedure for starting a new AI project: gather requirements, then generate the Proof-of-Concept (PoC) documentation package to the Tecman standard, held to defined industry standards.
+A repeatable, gated process with **two layers** (full detail in `references/gate-taxonomy.md`):
+
+- **Working layer** — granular markdown in `docs/`. The source of truth: version-controlled, updated in the *same turn* a decision is made, read directly by build sessions. All authoring happens here.
+- **Gate package** — Tecman-branded `.docx` in `gates/<gate>/`, **rendered from the markdown** at each review gate (PoC, then production) with the `tecman-docx` plugin. Never hand-authored.
 
 ## Operating rules
 
-- Be precise, structured, **UK English**, serious and concise. AI is assistive; preserve a mandatory human-in-the-loop. Do not fabricate — mark unknowns `[TBC – owner]`.
-- **Adhere to `references/standards.md`** (mandatory) and cite the relevant standard in each document.
-- **Format every document with the `tecman-docx` plugin/skill** (A4, Arial, teal palette, logo, Document Control + Change History tables, contents field, branded tables/code, footer). Do not invent a different style. If `tecman-docx` is not installed, tell the user and stop.
-- For Microsoft technologies, if the Microsoft Learn MCP tools are available, research current guidance before design decisions and cite the URLs.
-- Two phases with a **gate** between them. Do not pass the gate without the engineer's explicit go-ahead.
+- Precise, structured, **UK English**, serious and concise. AI is assistive; preserve a mandatory human-in-the-loop. Do not fabricate — mark unknowns `[TBC – owner]`.
+- **Persist every decision in the relevant `docs/` markdown file in the same turn it is made.** No decision exists until it is written down; never let the docs and the conversation drift.
+- Do not pick an architecture or write code until the engineer confirms. Record options and rejected alternatives as ADRs (Nygard format).
+- Adhere to `references/standards.md`; cite the relevant standard where it applies.
+- **Verify, don't assert** — for Microsoft technologies use the Microsoft Learn MCP tools and check before advising; cite the URLs.
+- Render gate packages **only** with the `tecman-docx` plugin. If it is not installed, tell the user and stop.
 
-## Phase 0 — Discovery / requirements gathering (no documents yet)
+## Step 1 — Scaffold (turn 1, before discussion)
 
-Interview the engineer using `references/discovery-questionnaire.md`. Ask in small grouped batches; reflect answers back after each; capture assumptions and open questions. Establish the project name and a 3–5 letter document code `<CODE>`. Confirm the brand logo (`tecman_logo.png`) is available.
+Create the working structure from `references/gate-taxonomy.md` with placeholder files (a single H1 + `Status: not yet started`), the `adr/` folder, a seeded `CLAUDE.md` (operating principles below), and a short `README.md` pointing into `docs/`. Commit it, so the index is real from the start.
 
-End Phase 0 by presenting: (i) a concise requirements summary; (ii) the proposed PoC document list with any recommended additions/omissions and reasons; (iii) the project `<CODE>`; and (iv) the standards that apply. **Get explicit go-ahead before Phase 1.**
+Seed `CLAUDE.md` with at least: verify-don't-assert (name the Microsoft Learn MCP and web search as the verification path); setup friction is a primary requirement; separate before sharing (don't force one primitive to serve two needs); persist decisions in `docs/` in the same turn. Extend it whenever a principle worth preserving is agreed.
 
-## Phase 1 — Generate the PoC documentation package (after go-ahead)
+## Step 2 — Discovery & capture (ongoing)
 
-Produce the documents below (tailor to the project; justify any omission), each to the Tecman house style and each citing the standard(s) it satisfies. Required sections are in `references/document-specs.md`. Replace `<CODE>` with the project code.
+Gather requirements (topics in `references/discovery-questionnaire.md`). **Elicitation style is flexible** — one focused question at a time, or grouped batches, as the engineer prefers — but **capture each agreed point into the relevant `docs/` markdown file in the same turn**. Push back on vague answers and on requirements/solution conflation; name the conflation. Surface tradeoffs. Establish the project name and a 3–5 letter document code `<CODE>`.
 
-| Code | Document | Primary standard(s) |
-|------|----------|---------------------|
-| `<CODE>-CHTR` | Project Charter | PMBOK / PRINCE2 practice |
-| `<CODE>-BRD` | Business Requirements Document | ISO/IEC/IEEE 29148 |
-| `<CODE>-REQ` | Requirements Specification (FR/NFR) | ISO/IEC/IEEE 29148 |
-| `<CODE>-SDA` | Solution Design & Architecture (HLD) | ISO/IEC/IEEE 42010; C4 / arc42 |
-| `<CODE>-LLD` | Low-Level Design | ISO/IEC/IEEE 42010 |
-| `<CODE>-AID` | AI Design / Prompt + Rules Specification | ISO/IEC 42001; NIST AI RMF |
-| `<CODE>-AES` | AI Evaluation Strategy & Golden Dataset | ISO/IEC 42001; NIST AI RMF; ISO/IEC 23894 |
-| `<CODE>-DPIA` | Data Protection Impact Assessment | UK GDPR / DPA 2018; ISO/IEC 27001 |
-| `<CODE>-RAID` | RAID Log (living) | ISO/IEC 23894 (risk) |
-| `<CODE>-ADR` | Architecture Decision Records (living) | MADR practice |
-| `<CODE>-GLOS` | Glossary | — |
+## Step 3 — Gate render (at each review gate)
 
-Produce diagrams as **real figures** (Graphviz, brand teal palette) and embed them with numbered captions. **Verify** each document against the house-style checklist and confirm cross-references resolve before presenting. Maintain a short corpus index. Respect the gate.
+When a gate is reached, render the Tecman-branded package from the working markdown per the taxonomy and roll-up mapping in `references/gate-taxonomy.md` and the section outlines in `references/document-specs.md`. Output to `gates/<gate>/`. The PoC gate **includes the LLD**. Re-render the whole package from current markdown; never edit a `.docx` by hand. (The `/render-gate-package` command performs this.)
 
-## Out of scope
+## Scope
 
-The **production documentation corpus** (ICD, data architecture, security/threat model, responsible-AI/model card, AI governance, test strategy, traceability matrix, release/runbook/monitoring/DR/change-management). Generate that later from the project's production-corpus prompt when ready to deploy.
+This skill covers discovery → working markdown → PoC gate package, with the production-gate taxonomy defined for later. Production-only documents (security/threat model, test plan, operations, ISO/IEC 42001 alignment, etc.) are produced at the production gate.
 
 ## References (read as needed)
 
-- `references/standards.md` — the industry standards and best practices to adhere to (**mandatory**).
-- `references/discovery-questionnaire.md` — the grouped discovery questions.
-- `references/document-specs.md` — per-document required sections.
+- `references/gate-taxonomy.md` — the two-layer model, working structure, gate taxonomy and roll-up rules (**read first**).
+- `references/standards.md` — industry standards and best practices to adhere to (**mandatory**).
+- `references/discovery-questionnaire.md` — discovery topics.
+- `references/document-specs.md` — required sections for each rendered document.

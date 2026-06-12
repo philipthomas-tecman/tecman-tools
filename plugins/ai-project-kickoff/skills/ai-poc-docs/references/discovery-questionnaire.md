@@ -1,6 +1,6 @@
 # Discovery / requirements-gathering questionnaire
 
-Ask these in **small, grouped batches**, not all at once. After each batch, reflect the answers back briefly and record assumptions and open questions. Do not generate any document until discovery is confirmed. Probe where answers are vague; never assume.
+These are **topics to cover**, not a script. The elicitation **style is flexible** — ask one focused question at a time, or in small grouped batches, as the engineer prefers. Whichever style, **capture each agreed point into the relevant `docs/` markdown file in the same turn** (see `gate-taxonomy.md`); the working markdown — not a one-off questionnaire — is the durable record. Reflect answers back, record assumptions and open questions, probe where answers are vague, and never assume.
 
 ## A. Project identity
 - Project name; a short **document code** (3–5 letters) used as `<CODE>` in all document codes and file names.
