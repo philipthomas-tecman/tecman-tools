@@ -1,0 +1,7 @@
+{
+  "name": "ai-project-kickoff",
+  "description": "Kick off a new AI project: run a structured requirements-gathering exercise, then generate the Proof-of-Concept documentation package to the Tecman standard, adhering to the industry standards and best practices in the bundled reference. Includes a /new-ai-project command, the ai-poc-docs skill, and a design-reviewer agent. Pairs with the tecman-docx plugin for formatting.",
+  "version": "1.0.0",
+  "author": { "name": "Philip Thomas" },
+  "keywords": ["ai", "project", "kickoff", "requirements", "documentation", "poc", "standards", "tecman"]
+}

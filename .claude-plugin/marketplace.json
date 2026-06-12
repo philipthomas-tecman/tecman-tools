@@ -10,6 +10,14 @@
       "version": "1.0.0",
       "author": { "name": "Philip Thomas" },
       "keywords": ["tecman", "docx", "word", "branding", "documentation", "house-style"]
+    },
+    {
+      "name": "ai-project-kickoff",
+      "source": "./plugins/ai-project-kickoff",
+      "description": "Kick off a new AI project: requirements gathering, then PoC documentation generation to the Tecman standard, adhering to industry standards. Includes /new-ai-project, the ai-poc-docs skill, and a design-reviewer agent.",
+      "version": "1.0.0",
+      "author": { "name": "Philip Thomas" },
+      "keywords": ["ai", "project", "kickoff", "requirements", "poc", "documentation", "standards", "tecman"]
     }
   ]
 }

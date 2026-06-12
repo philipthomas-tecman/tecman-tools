@@ -7,6 +7,7 @@ A Claude Code plugin marketplace hosting Tecman developer tools.
 | Plugin | Description |
 |--------|-------------|
 | `tecman-docx` | Generate or restyle Microsoft Word (`.docx`) documents in the Tecman house style and brand. Bundles the master logo and a `python-docx` generator library. |
+| `ai-project-kickoff` | Kick off a new AI project: runs requirements gathering, then generates the PoC documentation package to the Tecman standard, adhering to industry standards. Provides the `/new-ai-project` command, the `ai-poc-docs` skill, and a `design-reviewer` agent. Pairs with `tecman-docx` for formatting. |
 
 ## Install (any machine)
 
