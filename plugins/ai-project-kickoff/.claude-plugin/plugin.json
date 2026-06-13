@@ -1,7 +1,0 @@
-{
-  "name": "ai-project-kickoff",
-  "description": "Standard process for in-house AI projects: run requirements gathering, capture decisions as granular working markdown in docs/ (the source of truth), and render the Tecman-branded document package (.docx) from that markdown at each review gate (PoC and production). Gate-aware taxonomy with the LLD at the PoC gate. Provides the /new-ai-project and /render-gate-package commands, the ai-poc-docs skill, a discovery agent (reasoning model) for the requirements phase, and a gate-renderer agent (Sonnet) for cost-efficient document generation. Requires the tecman-docx plugin for rendering.",
-  "version": "2.1.0",
-  "author": { "name": "Philip Thomas" },
-  "keywords": ["ai", "project", "kickoff", "requirements", "documentation", "poc", "production", "gates", "standards", "models", "tecman"]
-}
