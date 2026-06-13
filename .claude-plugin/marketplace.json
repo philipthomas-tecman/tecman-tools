@@ -10,14 +10,6 @@
       "version": "1.0.0",
       "author": { "name": "Philip Thomas" },
       "keywords": ["tecman", "docx", "word", "branding", "documentation", "house-style"]
-    },
-    {
-      "name": "ai-project-kickoff",
-      "source": "./plugins/ai-project-kickoff",
-      "description": "Standard process for in-house AI projects: requirements gathering captured as working markdown, with the Tecman-branded document package rendered from it at each review gate (PoC and production). Gate-aware taxonomy (LLD at PoC). Includes /new-ai-project, /render-gate-package, the ai-poc-docs skill, a discovery agent (reasoning model), a Sonnet gate-renderer agent for cost-efficient generation, and a design-reviewer agent. Requires tecman-docx.",
-      "version": "2.1.0",
-      "author": { "name": "Philip Thomas" },
-      "keywords": ["ai", "project", "kickoff", "requirements", "poc", "documentation", "standards", "tecman"]
     }
   ]
 }
